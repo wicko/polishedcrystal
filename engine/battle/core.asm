@@ -4641,7 +4641,7 @@ endr
 	call LoadTileMapToTempTileMap
 	xor a
 	ld [wBattlePlayerAction], a
-	ld a, $f
+	ld a, BATTLEACTION_FORFEIT
 	ld [wCurMoveNum], a
 	xor a
 	ld [wCurPlayerMove], a
@@ -5438,7 +5438,7 @@ ParseEnemyAction:
 	ld a, [wBattleAction]
 	sub BATTLEACTION_SWITCH1
 	jr c, .no_linkswitch
-	cp NUM_POKEMON
+	cp PARTY_LENGTH
 	jr nc, .no_linkswitch
 
 	; Link enemy is switching
